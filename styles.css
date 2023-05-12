@@ -28,7 +28,7 @@ body {
 }
 
 .beginning-modal {
-    height:30%;
+    height:35%;
     width:20%;
     background-color:white;
     border-radius:20px;
@@ -37,18 +37,28 @@ body {
     justify-content: flex-start;
     align-items:center;
     box-shadow: 3px 3px 36px -10px rgba(0,0,0,0.75);
+    flex-wrap: wrap;
 
+}
+
+#unit {
+    height:15%;
+    padding-left:5px;
+    width:15%;
+    border-radius:10px;
+    margin-top:5px;
 }
 
 .search-input {
     padding-left:5px;
-    height:20%;
-    width:70%;
+    height:15%;
+    width:60%;
     border-radius:10px;
+    margin-top:5px;
 }
 
 .modal-title {
-    margin:20px;
+    margin:10px;
     font-size:1.25rem;
 }
 
@@ -123,8 +133,8 @@ body {
     background-color:white;
     border-radius:15px;
     height:25%;
-    width:50%;
-    box-shadow: 2px 2px 24px -15px rgba(0,0,0,0.75);
+    width:45%;
+    box-shadow: 2px 2px 24px -10px rgba(255, 255, 255, 0.75);
     display:flex;
     flex-direction:column;
     justify-content: center;
@@ -170,6 +180,7 @@ body {
     background-color:lightblue;
     text-align:center;
     padding-top:0.3rem;
+    box-shadow: 2px 2px 24px -15px rgba(0,0,0,0.75);
 }
 
 .researchbutton:hover {
