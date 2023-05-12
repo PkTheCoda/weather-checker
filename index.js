@@ -41,9 +41,9 @@ async function getWeatherData(place) {
     return realData;
 }
 
-async function getMoreData() {
+async function getMoreData(place) {
     try {
-        let newData = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=3880b02f38bb4ea8aa703431231005&q=london&days=7`, {
+        let newData = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=3880b02f38bb4ea8aa703431231005&q=${place}&days=7`, {
         mode: 'cors'
         });
 
@@ -57,9 +57,14 @@ async function getMoreData() {
 
 async function populateElements(place) {
     const weatherData = await getWeatherData(`${place}`);
-    const moreWeatherData = await getMoreData()
-    console.log(weatherData)
+    const moreWeatherData = await getMoreData(`${place}`)
     console.log(moreWeatherData)
+
+    for (let num = 0; num < 7; num++) {
+        document.querySelector(`.day${num}date`).textContent = `${moreWeatherData.forecast.forecastday[num].date}`
+        document.querySelector(`.day${num}title`).textContent = `${moreWeatherData.forecast.forecastday[num].day.condition.text}`
+        document.querySelector(`.day${num}temp`).textContent = `${moreWeatherData.forecast.forecastday[num].day.avgtemp_f} °F`
+    }
 
     // Main title set to place and country
     document.querySelector('.location').textContent = `${place}, ${weatherData.location.country}`
@@ -72,9 +77,9 @@ async function populateElements(place) {
 
     // Local Time set to local time
     document.querySelector('.localtime').textContent = `${weatherData.location.localtime}`
-
+    
     // Wind Speed set to wind speed 
-    document.querySelector('.localwind').textContent = `${weatherData.current.gust_mph}`
+    document.querySelector('.localwind').textContent = `${weatherData.current.gust_mph} mph`
 
     // Humids set to to humids
     document.querySelector('.localhumidity').textContent = `${weatherData.current.humidity}%`
@@ -85,4 +90,3 @@ async function populateElements(place) {
     // Region set to Region
     document.querySelector('.localregion').textContent = `${weatherData.location.region}`
 }
-
