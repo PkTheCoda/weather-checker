@@ -10,12 +10,13 @@ This is where you'll enter in the city/zipcode you would like to take a look at.
 
 <h2>Details Screen:</h2>
 It might take a few seconds since I am pulling the information from an API, but once fully loading, you may see something like this:
-
+<br>
 ![image](https://github.com/PkTheCoda/weather-checker/assets/107774675/3aef88a9-18d7-4131-8be2-d5a92fccbd78)
 
 You can see everything from the temperatures for the next few days to the region to even wind speed, local time, etc. If you want to search for something new, you can do it at the bottom:
-![image](https://github.com/PkTheCoda/weather-checker/assets/107774675/3a17f108-63ab-4006-948e-121e37c38742)
 
+![image](https://github.com/PkTheCoda/weather-checker/assets/107774675/3a17f108-63ab-4006-948e-121e37c38742)
+<br>
 What I learned in JavaScript while making this project:
 - Async and await
 - Using fetch()
@@ -38,5 +39,6 @@ In the future, I do plan to add new features in the future like:
 - local storage
 - Convert from Fahrenheit to Celsius
 - Better UI revamp
+- If the temperature is cold/war, change the background somehow
 
 Thanks for checking it out! Any feedback would be great.
