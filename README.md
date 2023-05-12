@@ -10,6 +10,7 @@ This is where you'll enter in the city/zipcode you would like to take a look at.
 
 <h2>Details Screen:</h2>
 It might take a few seconds since I am pulling the information from an API, but once fully loading, you may see something like this:
+
 ![image](https://github.com/PkTheCoda/weather-checker/assets/107774675/3aef88a9-18d7-4131-8be2-d5a92fccbd78)
 
 You can see everything from the temperatures for the next few days to the region to even wind speed, local time, etc. If you want to search for something new, you can do it at the bottom:
