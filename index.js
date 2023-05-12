@@ -55,13 +55,33 @@ async function getMoreData(place) {
 
 }
 
+function formatDate(dateString) {
+    const months = [
+      "January", "February", "March", "April", "May", "June", "July", 
+      "August", "September", "October", "November", "December"
+    ];
+    const date = new Date(dateString);
+    const month = months[date.getMonth()];
+    const day = date.getDate();
+    let daySuffix = "th";
+    if (day === 1 || day === 21 || day === 31) {
+      daySuffix = "st";
+    } else if (day === 2 || day === 22) {
+      daySuffix = "nd";
+    } else if (day === 3 || day === 23) {
+      daySuffix = "rd";
+    }
+    const year = date.getFullYear();
+    return `${month} ${day}${daySuffix}, ${year}`;
+}
+
 async function populateElements(place) {
     const weatherData = await getWeatherData(`${place}`);
     const moreWeatherData = await getMoreData(`${place}`)
     console.log(moreWeatherData)
 
     for (let num = 0; num < 7; num++) {
-        document.querySelector(`.day${num}date`).textContent = `${moreWeatherData.forecast.forecastday[num].date}`
+        document.querySelector(`.day${num}date`).textContent = `${formatDate(moreWeatherData.forecast.forecastday[num].date)}`
         document.querySelector(`.day${num}title`).textContent = `${moreWeatherData.forecast.forecastday[num].day.condition.text}`
         document.querySelector(`.day${num}temp`).textContent = `${moreWeatherData.forecast.forecastday[num].day.avgtemp_f} °F`
     }
