@@ -25,7 +25,6 @@ body {
     text-align:center;
     font-size:30px;
     margin:20px;
-    display:none;
 }
 
 .beginning-modal {
@@ -83,6 +82,7 @@ body {
     
 }
 
+/* Entire Body Holder*/
 .main-body {
     height:100vh;
     width:100%;
@@ -90,6 +90,7 @@ body {
     flex-direction: column;
 }
 
+/* Header with title and subtitle */
 .header-holder {
     width:100%;
     height:15%;
@@ -98,6 +99,7 @@ body {
     justify-content: center;
 }
 
+/* Body Content Holder*/
 .body-content {
     width:100%;
     height:70%;
@@ -106,13 +108,15 @@ body {
     align-items:center;
 }
 
+/* Content Holders - Body */
 .content-holder {
     height:85%;
-    width:30%;
+    width:25%;
     display:flex;
     flex-direction:column;
     justify-content:start;
     align-items:center;
+
 }
 
 .temps, .times, .winds, .humids, .precips, .regions {
@@ -174,5 +178,37 @@ body {
 }
 
 .middle-container {
-    background-color: red;
+    height:100%;
+    width:40%;
+    display:flex;
+    flex-direction: column;
+    background-color:white;
+    box-shadow: 2px 2px 24px -15px rgba(0,0,0,0.75);
+    border-radius:15px;
+    border: 3px solid black;
+}
+
+.middle-container > * {
+    width:100%;
+    height:18%;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.daydate {
+    font-weight:700;
+    font-size:20px;
+}
+
+.dayholder {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+.daytemp {
+    font-weight:800;
+    font-size:30px;
 }
