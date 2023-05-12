@@ -80,10 +80,31 @@ async function populateElements(place) {
     const moreWeatherData = await getMoreData(`${place}`)
     console.log(moreWeatherData)
 
+    if ((weatherData.current.feelslike_f) >= 80) {
+        document.body.style.background = `linear-gradient(90deg, rgba(255,193,7,1) 0%, rgba(255,191,0,1) 35%, rgba(255,128,0,1) 100%)`;
+        document.querySelector('.weatherdesc').style.color = 'white'
+    } else if ((weatherData.current.feelslike_f) <= 40) {
+        document.body.style.background = `linear-gradient(90deg, rgba(22,88,115,1) 0%, rgba(135,206,235,1) 50%, rgba(211,211,211,1) 100%)`;
+        document.querySelector('.weatherdesc').style.color = 'white'
+    }
+
     for (let num = 0; num < 7; num++) {
+
+        if (document.querySelector('#unit').value == 'C') {
+            document.querySelector(`.day${num}temp`).textContent = `${moreWeatherData.forecast.forecastday[num].day.avgtemp_c} °C`
+        } else if (document.querySelector('#unit').value == 'F') {
+            document.querySelector(`.day${num}temp`).textContent = `${moreWeatherData.forecast.forecastday[num].day.avgtemp_f} °F`
+        }
+
         document.querySelector(`.day${num}date`).textContent = `${formatDate(moreWeatherData.forecast.forecastday[num].date)}`
         document.querySelector(`.day${num}title`).textContent = `${moreWeatherData.forecast.forecastday[num].day.condition.text}`
-        document.querySelector(`.day${num}temp`).textContent = `${moreWeatherData.forecast.forecastday[num].day.avgtemp_f} °F`
+    }
+
+    console.log(document.querySelector('#unit').value)
+    if (document.querySelector('#unit').value == 'C') {
+        document.querySelector('.localtemp').textContent = `${weatherData.current.feelslike_c} °C`
+    } else if (document.querySelector('#unit').value == 'F') {
+        document.querySelector('.localtemp').textContent = `${weatherData.current.feelslike_f} °F`
     }
 
     // Main title set to place and country
@@ -92,8 +113,8 @@ async function populateElements(place) {
     // Subtitle set to condition
     document.querySelector('.weatherdesc').textContent = `${weatherData.current.condition.text}`
 
-    // Local Temp set to local temp
-    document.querySelector('.localtemp').textContent = `${weatherData.current.feelslike_f} °F`
+
+    // document.querySelector('.localtemp').textContent = `${weatherData.current.feelslike_f} °F`
 
     // Local Time set to local time
     document.querySelector('.localtime').textContent = `${weatherData.location.localtime}`
