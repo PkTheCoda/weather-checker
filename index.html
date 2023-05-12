@@ -16,8 +16,8 @@
         <div class="header-holder">            
 
             <div class="titles">
-                <h1 class="location" style="margin-top:1rem;"></h1>
-                <h3 class="weatherdesc" style="text-align: center; color:grey;"></h3>
+                <h1 class="location" style="margin-top:1rem;">Loading Elements . . .</h1>
+                <h3 class="weatherdesc" style="text-align: center; color:grey;">Grabbing from API</h3>
             </div>      
         
         </div>   
@@ -47,18 +47,18 @@
 
                 <div class="day0">
                     <div class="day0holder dayholder">
-                        <div class="day0date daydate">2023-05-12</div>
-                        <div class="day0title">Patchy Rain</div>
+                        <div class="day0date daydate"></div>
+                        <div class="day0title"></div>
                     </div>
-                    <div class="day0temp daytemp">55 °F</div>
+                    <div class="day0temp daytemp"></div>
                 </div>
 
                 <div class="day1">
                     <div class="day1holder dayholder">
-                        <div class="day1date daydate">2023-05-12</div>
-                        <div class="day1title">Patchy Rain</div>
+                        <div class="day1date daydate"></div>
+                        <div class="day1title"></div>
                     </div>
-                    <div class="day1temp daytemp">55 °F</div>
+                    <div class="day1temp daytemp"></div>
                 </div>
 
                 <div class="day2">
@@ -141,7 +141,15 @@
         <h1 class="begtitle">Weather-Checker</h1>
         <div class="beginning-modal">
             <h2 class="modal-title">Search a City:</h2>
-            <input type="text" class="search-input">
+
+            <input type="text" class="search-input" placeholder="Enter City">
+
+            <select id="unit">
+                <option value="C">C</option>
+                <option value="F">F</option>
+            </select>
+
+            
             <button class="submit-button">Weather Me!</button>
         </div>
     </div>
